@@ -1,12 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400');
 @import url('https://fonts.googleapis.com/css?family=Metal+Mania');
 
-@font-face {
-    font-family: "Booter - Zero Zero";
-    src: url("Fonts/Booter") format("woff");
-    font-weight: normal;
-    font-style: normal;
-}
 * {
     box-sizing: border-box;
     font-family: Raleway;
