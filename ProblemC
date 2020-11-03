@@ -1,0 +1,58 @@
+#include<iostream>
+#include<stdio.h>
+#include<cstring>
+using namespace std;
+struct in
+{
+    char a[11];
+    char b[11];
+}s[55];
+struct name
+{
+    char na[11];
+    double ro;
+};
+name num[55],temp[55];
+double find(char *p,int n)
+{
+    for(int i=0;i<=n;i++)
+        if(strcmp(num[i].na,p)==0)
+        {
+            return num[i].ro;
+        }
+    return 0;
+}
+int main()
+{
+    int n,m;
+    while(scanf("%d%d",&n,&m)!=EOF)
+    {
+        for(int i=0;i<=n;i++)
+            num[i].ro=0;
+        scanf("%s",&num[0].na);
+        num[0].ro=1<<30;
+        for(int i=1;i<=n;i++)
+            scanf("%s%s%s",&num[i].na,&s[i].a,&s[i].b);
+        for(int i=1;i<=n;i++)
+        {
+            for(int j=1;j<=n;j++)
+            {
+                num[j].ro=(find(s[j].a,n)+find(s[j].b,n))/2;
+            }
+        }
+        double max=0;
+        int ans;
+        for(int i=0;i<m;i++)
+        {
+            scanf("%s",&temp[i].na);
+            double flag=find(temp[i].na,n);
+            if(max<flag)
+            {
+                max=flag;
+                ans=i;
+            }
+        }
+        printf("%s\n",temp[ans].na);
+    }
+    return 0;
+}
